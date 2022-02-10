@@ -1,7 +1,8 @@
-import { Input } from '@angular/core';
+import { Input, Injectable, Component } from '@angular/core';
 
-import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout';
+import { GridLayout } from '@nativescript/core';
 
+@Component({template: ''})
 export class PartialGridPanelLayout extends GridLayout {
 
   @Input() debug;

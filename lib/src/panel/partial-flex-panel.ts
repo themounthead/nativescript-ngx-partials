@@ -1,7 +1,8 @@
-import { Input } from '@angular/core';
+import { Input, Injectable, Component } from '@angular/core';
 
-import { FlexboxLayout } from 'tns-core-modules/ui/layouts/flexbox-layout';
+import { FlexboxLayout } from '@nativescript/core';
 
+@Component({template: ''})
 export class PartialFlexPanelLayout extends FlexboxLayout {
 
   @Input() debug;

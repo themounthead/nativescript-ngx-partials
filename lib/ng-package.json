@@ -3,13 +3,9 @@
   "lib": {
     "entryFile": "src/public_api.ts",
      "umdModuleIds": {
-      "nativescript-angular/element-registry": "nativescript-angular/element-registry",
-      "tns-core-modules/platform": "tns-core-modules/platform",
-      "tns-core-modules/application": "tns-core-modules/application",
-      "tns-core-modules/ui/frame": "tns-core-modules/ui/frame",
-      "tns-core-modules/ui/layouts/flexbox-layout": "tns-core-modules/ui/layouts/flexbox-layout",
-      "tns-core-modules/ui/layouts/stack-layout": "tns-core-modules/ui/layouts/stack-layout",
-      "tns-core-modules/ui/layouts/grid-layout": "tns-core-modules/ui/layouts/grid-layout"
+      "@nativescript/angular": "@nativescript/angular",
+      "@nativescript/core": "@nativescript/core",
+      "@nativescript/core/application": "@nativescript/core/application"
     }
   },
   "dest": "../dist/"

@@ -1,28 +1,30 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
+    "module": "esnext",
+    "target": "es2017",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
     "noEmitHelpers": true,
     "noEmitOnError": true,
-    "lib": [
-      "es6",
-      "dom",
-      "es2015.iterable"
-    ],
+    "skipLibCheck": true,
+    "lib": ["es2017", "dom"],
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "./node_modules/tns-core-modules/*",
-        "./node_modules/*"
-      ],
-      "nativescript-ngx-partials": ["./lib/index.ts"]
+      "~/*": ["src/*"],
+      "@/*": ["src/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "platforms"
-  ]
+  "include": ["src/tests/**/*.ts", "src/**/*.ios.ts", "src/**/*.android.ts", "lib/**/*.ts"],
+  "files": ["./app/main.ts", "./references.d.ts", "./app/polyfills.ts"],
+  "exclude": ["node_modules", "platforms", "e2e"],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": true,
+    "optimization": true,
+    "aot": true,
+    "buildOptimizer": true,
+    "trace": true
+  }
 }

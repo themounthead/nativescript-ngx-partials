@@ -1,9 +1,8 @@
 import { Inject, forwardRef, Injectable, OnDestroy } from '@angular/core';
 
-import { Frame } from 'tns-core-modules/ui/frame';
-import { screen } from 'tns-core-modules/platform';
+import { Frame, Screen, Application } from '@nativescript/core';
 
-import * as application from 'tns-core-modules/application';
+// import * as application from '@nativescript/core/application';
 
 import { interval, Observable, BehaviorSubject, Subscription } from 'rxjs';
 
@@ -63,7 +62,7 @@ export class KeyboardService implements OnDestroy {
         const screenHeight = cv.getRootView().getHeight();
         const missingSize = screenHeight - rect.bottom;
 
-        this.keyboardSize = missingSize / screen.mainScreen.scale;
+        this.keyboardSize = missingSize / Screen.mainScreen.scale;
 
         if (missingSize > (screenHeight * 0.15)) {
           notifyKeyboard(true);
@@ -75,13 +74,23 @@ export class KeyboardService implements OnDestroy {
   }
 
   private trackiOSKeyboard() {
-    application.ios.addNotificationObserver(UIKeyboardDidShowNotification, () => notifyKeyboard(true));
-    application.ios.addNotificationObserver(UIKeyboardDidHideNotification, () => notifyKeyboard(false));
+    Application.ios.addNotificationObserver(UIKeyboardDidShowNotification, () => notifyKeyboard(true));
+    Application.ios.addNotificationObserver(UIKeyboardDidHideNotification, () => notifyKeyboard(false));
   }
 
   public getKeyboardSize() {
-    const keyboardSize = this.keyboardSize || (0.4 * screen.mainScreen.heightDIPs);
-    return keyboardSize;
-  }
+       const rect = new android.graphics.Rect();
+       const cv = Frame.topmost().currentPage.android;
+       cv.getWindowVisibleDisplayFrame(rect);
+       const screenHeight = cv.getRootView().getHeight();
+       const missingSize = screenHeight - rect.bottom;
+       const keyboardSize = missingSize / Screen.mainScreen.scale;
+       return keyboardSize;
+    }
+
+  // public getKeyboardSize() {
+  //   const keyboardSize = this.keyboardSize || (0.4 * Screen.mainScreen.heightDIPs);
+  //   return keyboardSize;
+  // }
 
 }

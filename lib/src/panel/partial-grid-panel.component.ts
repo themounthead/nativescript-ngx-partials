@@ -1,6 +1,6 @@
 import { Component, Input, AfterViewInit, OnInit } from '@angular/core';
 
-import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout';
+import { StackLayout } from '@nativescript/core';
 
 import { PartialGridPanelLayout } from './partial-grid-panel';
 

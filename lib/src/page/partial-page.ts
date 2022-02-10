@@ -1,11 +1,12 @@
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input, Output, EventEmitter, Component } from '@angular/core';
 
-import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout';
+import { StackLayout } from '@nativescript/core';
 
 export type TViewConfig = 'fixed' | 'float' | 'flow';
 
 export type TToolbarConfig = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
+@Component({template: ''})
 export class PartialPage extends StackLayout {
 
   @Input() debug;

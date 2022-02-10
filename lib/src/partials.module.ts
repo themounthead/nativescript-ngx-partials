@@ -1,7 +1,11 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { registerElement } from 'nativescript-angular/element-registry';
+import { registerElement } from '@nativescript/angular';
+
+import { PartialPage } from './page/partial-page';
+import { PartialGridPanelLayout } from './panel/partial-grid-panel';
+import { PartialFlexPanelLayout } from './panel/partial-flex-panel';
 
 import { PartialColPanelComponent } from './panel/partial-col-panel.component';
 import { PartialRowPanelComponent } from './panel/partial-row-panel.component';
@@ -16,6 +20,9 @@ registerElement('GridPanel', () => PartialGridPanelComponent);
 registerElement('Panel', () => PartialGridNestedPanelComponent);
 
 const COMPONENTS = [
+  PartialPage,
+  PartialGridPanelLayout,
+  PartialFlexPanelLayout,
   PartialColPanelComponent,
   PartialRowPanelComponent,
   PartialGridPanelComponent,
